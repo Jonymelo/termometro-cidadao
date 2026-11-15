@@ -187,6 +187,29 @@ input[type=range]::-moz-range-thumb{width:16px;height:16px;border-radius:50%;bac
 .tltrack{height:14px;border-radius:7px;background:rgba(255,255,255,.06);overflow:hidden}
 .tlfill{height:100%;border-radius:7px;transition:width .35s ease}
 @media(max-width:600px){.tlbar{grid-template-columns:92px 1fr 44px;font-size:12.5px}}
+
+/* ---- ajustes mobile ---- */
+.tscroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+@media(max-width:620px){
+ h1{letter-spacing:-1px}
+ .stat{padding:20px 14px}
+ .stat .n{font-size:28px;letter-spacing:-1px}
+ .stat .n u{font-size:.42em;margin-left:2px}
+ .stat .l{font-size:12.5px;max-width:none;margin-top:9px}
+ .stats{margin-top:40px}
+ .snow{grid-template-columns:1fr}
+ .sd b{font-size:13.5px;word-break:break-word} .sd span{font-size:10.5px}
+ .odg{grid-template-columns:1fr}
+ .tcard .top{font-size:10.5px;letter-spacing:.4px}
+ .tscroll{overflow:visible}
+ #painel thead{display:none}
+ #painel table,#painel tbody,#painel tr,#painel td{display:block;width:auto}
+ #mtb tr{border-bottom:1px solid var(--line);padding:5px 0}
+ #mtb tr:last-child{border-bottom:0}
+ #mtb td{display:flex;justify-content:space-between;gap:14px;align-items:center;padding:9px 18px;border:0;text-align:right}
+ #mtb td::before{content:attr(data-label);color:var(--dim);font-size:10.5px;letter-spacing:.4px;text-transform:uppercase;text-align:left;flex:0 0 auto}
+ .hero-n{font-size:clamp(56px,20vw,96px)}
+}
 </style></head>
 <body>
 
@@ -302,7 +325,7 @@ input[type=range]::-moz-range-thumb{width:16px;height:16px;border-radius:50%;bac
  <p class="sub">Onde o risco está concentrado, para a secretaria organizar a busca ativa. Exemplo com Mato Grosso, do modelo real.</p>
  <div class="tcard">
   <div class="top"><span class="d"></span>PAINEL DO GESTOR · MATO GROSSO · 2023-2025</div>
-  <table><thead><tr><th>Município</th><th>Tipo predominante</th><th class="r">Idosos 65+</th><th class="r">Dias de risco</th><th>Risco</th></tr></thead><tbody id="mtb"></tbody></table>
+  <div class="tscroll"><table><thead><tr><th>Município</th><th>Tipo predominante</th><th class="r">Idosos 65+</th><th class="r">Dias de risco</th><th>Risco</th></tr></thead><tbody id="mtb"></tbody></table></div>
  </div>
  <p style="font-family:'Poppins';font-size:12px;color:var(--dim);margin-top:14px">Faixa de risco por dias de calor alto (de 1.095): 700+ crítico · 600-699 alto · abaixo atenção.</p>
 </div></section>
@@ -392,7 +415,7 @@ document.getElementById('tcards').innerHTML=D.tipos.map(t=>{
 
 /* MT */
 const cc={'Crítico':'c-crit','Alto':'c-alto','Atenção':'c-aten'};
-document.getElementById('mtb').innerHTML=D.mt.map(m=>`<tr><td style="font-weight:600">${m.municipio}</td><td style="color:var(--ink2)">${m.tipo}</td><td class="r" data-count="${m.idosos}">0</td><td class="r" data-count="${m.dias}">0</td><td><span class="chip ${cc[m.risco]}">${m.risco}</span></td></tr>`).join('');
+document.getElementById('mtb').innerHTML=D.mt.map(m=>`<tr><td data-label="Município" style="font-weight:600">${m.municipio}</td><td data-label="Tipo predominante" style="color:var(--ink2)">${m.tipo}</td><td class="r" data-label="Idosos 65+" data-count="${m.idosos}">0</td><td class="r" data-label="Dias de risco" data-count="${m.dias}">0</td><td data-label="Risco"><span class="chip ${cc[m.risco]}">${m.risco}</span></td></tr>`).join('');
 
 /* charts theme */
 Chart.defaults.font.family="'Poppins',sans-serif";Chart.defaults.font.size=11;Chart.defaults.color=DIM;

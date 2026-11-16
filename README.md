@@ -1,5 +1,7 @@
 # Termômetro Cidadão
 
+**Dashboard ao vivo: https://jonymelo.github.io/termometro-cidadao/**
+
 Solução contra o calor extremo que cruza o **tipo de calor de cada dia** com a **vulnerabilidade de cada município** para descobrir onde o alerta precisa virar prioridade. Global Solution 2026.2 (CitizenTech), FIAP. Grupo Cluster 2.0, turma 2TSCOR.
 
 O calor extremo não derruba casas nem alaga ruas, então quase não vira notícia, mas desidrata, agrava doenças do coração e dos rins e mata, principalmente idoso. O alerta que existe hoje chega para quem já está conectado; quem mais precisa costuma ser quem menos recebe. A ideia aqui é separar o calor em tipos (o seco desidrata, o abafado sobrecarrega o corpo porque o suor não evapora) e, onde um calor perigoso encontra muita gente vulnerável, acionar busca ativa em vez de só mandar um SMS.
@@ -9,7 +11,7 @@ O calor extremo não derruba casas nem alaga ruas, então quase não vira notíc
 O arquivo `index.html` é a página inteira, sem dependência de servidor. Duas formas de abrir:
 
 - **Local**: baixe e abra o `index.html` no navegador.
-- **GitHub Pages**: em Settings > Pages, aponte para a branch `main` na raiz. A página sobe em `https://SEU-USUARIO.github.io/termometro-cidadao`.
+- **GitHub Pages (ao vivo)**: https://jonymelo.github.io/termometro-cidadao/
 
 O dashboard tem as telas de tipos de calor, vulnerabilidade, mapa (com busca por município), simulador de alerta e linha do tempo. Funciona no celular.
 
